@@ -1,5 +1,5 @@
 backend: 
-  name: test-repo
+  name: bitbucket
 
 media_folder: static/assets
 
@@ -9,6 +9,8 @@ collections:
     folder: src/portfolios
     create: true
     fields:
-      - { name: title, label: Title }
-      - { name: date, label: Date, widget: date }
-      - { name: body, label: Body, widget: markdown }
+      - { name: "title", label: "Title", default: "Title"}
+      - { name: "date", label: "Date", widget: "date" }
+      - { name: "specialty", label: "Specialty", default: "Specialty"}
+      - { name: "body", label: "Body", widget: "markdown", default: "Enter post here"}
+      - { name: "thumbnail", label: "Featured Image", widget: "image"}

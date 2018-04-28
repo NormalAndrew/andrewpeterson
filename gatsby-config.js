@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter - Ceevee",
-    author: "Aman Mittal",
-    description: "A Gatsby.js Starter based on Ceevee by Styleshout"
+    title: "Andrew Peterson - Mechanical Engineer & Adventurer",
+    author: "Andrew Peterson",
+    description: "A place to learn about what Andrew loves to do."
   },
   pathPrefix: "/",
   plugins: [
@@ -17,6 +17,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `portfolios`,
+        path: `${__dirname}/src/pages/portfolios`
       }
     },
     {
@@ -37,7 +44,8 @@ module.exports = {
           },
           "gatsby-remark-copy-linked-files"
         ]
-      }
+      },
+      
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

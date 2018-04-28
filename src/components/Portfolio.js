@@ -10,16 +10,39 @@ import Girl from "../assets/images/portfolio/girl.jpg";
 import Origami from "../assets/images/portfolio/origami.jpg";
 import Retrocam from "../assets/images/portfolio/retrocam.jpg";
 
-const Portfolio = () => (
+const PortfolioListing = ( {post} ) => (
+  <div className="columns portfolio-item">
+    <div className="item-wrap">
+      <a href="#modal-01" title="">
+        <img alt="" src={Coffee} />
+        <div className="overlay">
+          <div className="portfolio-item-meta">
+            <h5>{post.frontmatter.title}</h5>
+            <p>{post.frontmatter.specialty}</p>
+          </div>
+        </div>
+        <div className="link-icon">
+          <FaPlus />
+        </div>
+      </a>
+    </div>
+  </div>
+);
+
+const Portfolio = ({ data }) => (
   <section id="portfolio">
     <div className="row">
       <div className="twelve columns collapsed">
         <h1>Check Out Some of My Works.</h1>
-
         <div
           id="portfolio-wrapper"
           className="bgrid-quarters s-bgrid-thirds cf"
         >
+          {data.allMarkdownRemark.edges.map(({node}) => {
+            return <PortfolioListing key={node.frontmatter.title} post={node} />
+          })}
+
+
           <div className="columns portfolio-item">
             <div className="item-wrap">
               <a href="#modal-01" title="">

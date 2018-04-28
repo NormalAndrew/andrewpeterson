@@ -10,15 +10,32 @@ import Portfolio from "../components/Portfolio";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 
-const IndexPage = () => (
+const IndexPage = ( {data} ) => (
   <div>
     <Header />
     <About />
     <Resume />
-    <Portfolio />
+    <Portfolio data={data} />
     <Testimonials />
     <Footer />
   </div>
 );
 
 export default IndexPage;
+
+export const query = graphql`
+  query SitePortfolios {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+            date(formatString:"MMMM DD, YYYY")
+            specialty
+          }
+          html
+        }
+      }
+    }
+  }
+`
